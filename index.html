@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <main>
+      <div class="login_box_wrapper">
+        <div class="login_box">
+          <h3>Log In Here</h3>
+          <form id="login_form">
+            <input
+              id="userName"
+              type="text"
+              required
+              name="username"
+              placeholder="Username or Email"
+            />
+          </br>
+            <input
+              id="userPassword"
+              type="password"
+              required
+              name="userPassword"
+              placeholder="Password"
+            />
+        </br>
+            <p><a href="#">Forgetten Password?</a></p>
+            <button id="submit_btn" type="submit" name="submit_btn">Log In</button>
+          </br>
+          <p>Don't have an account?</p>
+        </br>
+        <button id="return_to_register" type="button" name="return_to_register">Register Here</button>
+          </form>
+        </div>
+        <div class="register_form">
+          <h3>Registration Form</h3>
+          <form class="register_user">
+            <input
+              id="register_first_name"
+              type="text"
+              required
+              name="register_first_name"
+              placeholder="First Name"
+            />
+          </br>
+            <input
+              id="register_surname"
+              type="text"
+              required
+              name="register_surname"
+              placeholder="Last Name"
+            />
+          </br>
+            <input
+              id="register_email"
+              type="email"
+              required
+              name="register_email"
+              placeholder="Email address"
+            />
+          </br>
+            <input
+              id="register_username"
+              type="text"
+              required
+              name="register_username"
+              placeholder="Username (no spaces)"
+            />
+          </br>
+            <input
+              id="register_password"
+              type="password"
+              required
+              name="register_password"
+              placeholder="Password"
+            />
+        </br>
+            <button
+              id="register_submit_btn"
+              type="submit"
+              name="register_submit_btn"
+            >Register Info</button>
+            <p>Already have an account?</p>
+        </br>
+        <button id="login_btn" type="button" name="login_btn">Log In</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
