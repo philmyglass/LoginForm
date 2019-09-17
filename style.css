@@ -27,15 +27,22 @@ main {
 .register_form {
   display: flex;
   flex-direction: column;
-  max-width: 320px;
-  max-height: 420px;
+  max-width: 25vw;
+  max-height: 75vh;
   width: 100%;
-  height: 100%;
+  height: auto;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 50px;
   border-radius: 5px;
   color: white;
   text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .login_box,
+  .register_form {
+    max-width: 50vw;
+  }
 }
 
 input {
