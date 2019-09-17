@@ -17,12 +17,14 @@ const domStrings = {
   loginForm: ".login_box",
   loginBox: "login_form",
   loginSubmit: "login_btn",
-  registerReturn: "return_to_register"
+  registerReturn: "return_to_register",
+  passwordWarning: ".password_warning",
+  usernameWarning: ".username_warning"
 };
 
 //regexps stored as variables
 const regexps = {
-  passwordReg: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}$/,
+  passwordReg: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])(?!.*\s).{6,}$/,
   noSpacesReg: /^\S*$/
 };
 
@@ -46,8 +48,19 @@ const addUser = ev => {
     userContainer.push(newUser);
     document.querySelector(domStrings.registerForm).reset();
     console.log(userContainer);
+  } else if (
+    regexps.passwordReg.test(pword) === false &&
+    regexps.noSpacesReg.test(uName) === true
+  ) {
+    document.querySelector(domStrings.passwordWarning).style.display = "block";
+  } else if (
+    regexps.passwordReg.test(pword) === true &&
+    regexps.noSpacesReg.test(uName) === false
+  ) {
+    document.querySelector(domStrings.usernameWarning).style.display = "block";
   } else {
-    alert("Please enter a different password");
+    document.querySelector(domStrings.passwordWarning).style.display = "block";
+    document.querySelector(domStrings.usernameWarning).style.display = "block";
   }
 };
 

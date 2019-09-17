@@ -11,6 +11,7 @@
   <body>
     <main>
       <div class="login_box_wrapper">
+        <!--Login form that is hidden by default when the application first starts-->
         <div class="login_box">
           <h3>Log In Here</h3>
           <form id="login_form">
@@ -38,6 +39,7 @@
         <button id="return_to_register" type="button" name="return_to_register">Register Here</button>
           </form>
         </div>
+        <!--Registration form that isthe default form show when the application starts-->
         <div class="register_form">
           <h3>Registration Form</h3>
           <form class="register_user">
@@ -65,6 +67,7 @@
               placeholder="Email address"
             />
           </br>
+          <p class="username_warning">There must be no spaces in the chosen username</p>
             <input
               id="register_username"
               type="text"
@@ -73,6 +76,7 @@
               placeholder="Username (no spaces)"
             />
           </br>
+          <p class="password_warning">Please enter a password containing no spaces, at least 1 uppercase character, 1 lowercase character and 1 number.</p>
             <input
               id="register_password"
               type="password"
