@@ -91,7 +91,9 @@ a {
 }
 
 .password_warning,
-.username_warning {
+.username_warning_spaces,
+.username_used,
+.email_warning {
   display: none;
   background-color: firebrick;
   color: white;

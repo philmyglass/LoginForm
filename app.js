@@ -19,7 +19,9 @@ const domStrings = {
   loginSubmit: "login_btn",
   registerReturn: "return_to_register",
   passwordWarning: ".password_warning",
-  usernameWarning: ".username_warning"
+  usernameWarning: ".username_warning_spaces",
+  usernameUsed: ".username_used",
+  emailWarning: ".email_warning"
 };
 
 //regexps stored as variables
@@ -28,40 +30,59 @@ const regexps = {
   noSpacesReg: /^\S*$/
 };
 
+const checkRegister = userContainer.forEach(cur => {
+  let email = document.getElementById(domStrings.email).value;
+  let user = document.getElementById(domStrings.userName).value;
+  if (cur.email === email) {
+    document.querySelector(domStrings.emailWarning).style.display = "block";
+  } else if (cur.userName === user) {
+    document.querySelector(domStrings.usernameUsed).style.display = "block";
+  }
+});
+
 //validates password and username conditions and pushes user input data into the data structure if condition returns true
+//if either the password and/or username don't pass the regexp test a warning box is displayed telling the user what is wrong
 const addUser = ev => {
   let pword = document.getElementById(domStrings.password).value;
   let uName = document.getElementById(domStrings.userName).value;
   ev.preventDefault();
-  if (
-    regexps.passwordReg.test(pword) === true &&
-    regexps.noSpacesReg.test(uName) === true
-  ) {
-    let newUser = {
-      id: Date.now(),
-      firstName: document.getElementById(domStrings.firstName).value,
-      lastName: document.getElementById(domStrings.lastName).value,
-      email: document.getElementById(domStrings.email).value,
-      userName: document.getElementById(domStrings.userName).value,
-      password: document.getElementById(domStrings.password).value
-    };
-    userContainer.push(newUser);
-    document.querySelector(domStrings.registerForm).reset();
-    console.log(userContainer);
-  } else if (
-    regexps.passwordReg.test(pword) === false &&
-    regexps.noSpacesReg.test(uName) === true
-  ) {
-    document.querySelector(domStrings.passwordWarning).style.display = "block";
-  } else if (
-    regexps.passwordReg.test(pword) === true &&
-    regexps.noSpacesReg.test(uName) === false
-  ) {
-    document.querySelector(domStrings.usernameWarning).style.display = "block";
-  } else {
-    document.querySelector(domStrings.passwordWarning).style.display = "block";
-    document.querySelector(domStrings.usernameWarning).style.display = "block";
-  }
+
+  //checkRegister();
+
+  if (checkRegister.length)
+    if (
+      regexps.passwordReg.test(pword) === true &&
+      regexps.noSpacesReg.test(uName) === true
+    ) {
+      let newUser = {
+        id: Date.now(),
+        firstName: document.getElementById(domStrings.firstName).value,
+        lastName: document.getElementById(domStrings.lastName).value,
+        email: document.getElementById(domStrings.email).value,
+        userName: document.getElementById(domStrings.userName).value,
+        password: document.getElementById(domStrings.password).value
+      };
+      userContainer.push(newUser);
+      document.querySelector(domStrings.registerForm).reset();
+      console.log(userContainer);
+    } else if (
+      regexps.passwordReg.test(pword) === false &&
+      regexps.noSpacesReg.test(uName) === true
+    ) {
+      document.querySelector(domStrings.passwordWarning).style.display =
+        "block";
+    } else if (
+      regexps.passwordReg.test(pword) === true &&
+      regexps.noSpacesReg.test(uName) === false
+    ) {
+      document.querySelector(domStrings.usernameWarning).style.display =
+        "block";
+    } else {
+      document.querySelector(domStrings.passwordWarning).style.display =
+        "block";
+      document.querySelector(domStrings.usernameWarning).style.display =
+        "block";
+    }
 };
 
 //Reads the user input in the login form and checks whether the email exists

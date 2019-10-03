@@ -39,7 +39,7 @@
         <button id="return_to_register" type="button" name="return_to_register">Register Here</button>
           </form>
         </div>
-        <!--Registration form that isthe default form show when the application starts-->
+        <!--Registration form that is the default form show when the application starts-->
         <div class="register_form">
           <h3>Registration Form</h3>
           <form class="register_user">
@@ -59,6 +59,7 @@
               placeholder="Last Name"
             />
           </br>
+          <p class="email_warning">That email address has already been registered</p>
             <input
               id="register_email"
               type="email"
@@ -67,7 +68,8 @@
               placeholder="Email address"
             />
           </br>
-          <p class="username_warning">There must be no spaces in the chosen username</p>
+          <p class="username_warning_spaces">There must be no spaces in the chosen username</p>
+          <p class="username_used">That username has already been registered</p>
             <input
               id="register_username"
               type="text"
